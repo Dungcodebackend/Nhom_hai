@@ -21,7 +21,8 @@ body {
   }
   .menu-item:hover {
    background-color: #797777;
-   transform: scale(1.05);  }
+   transform: scale(1.05);
+  }
   .content {
     margin-left: 250px;
     padding: 20px;
