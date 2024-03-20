@@ -18,7 +18,7 @@
                         <p class="price" style="padding: 8px 0px 12px 0px"><?php echo $sanpham['gia'] ?> VND</p>
 
                         <a href="index.php?act=bien_the&id=<?php echo $sanpham['id'] ?>"><input type="submit" value="Thêm vào giỏ"></a>
-                        <a href=""><input type="submit" value="Mua"></a>
+                        <a href="index.php?act=chi_tiet&id=<?php echo $sanpham['id'] ?>"><input type="button" value="Mua"></a>
 
                     </section>
                         <?php

@@ -106,5 +106,19 @@ function update__sanpham($sp,$btanh,$bienthe,$id)
               tenbt = '$bienthe[0]',bienthe1='$bienthe[1]',bienthe2='$bienthe[2]',bienthe3='$bienthe[3]'
                WHERE id=$id";
     pdo_execute($sqlbt);
-
+}
+function load__sanpham($id){
+    $sql = "SELECT*FROM sanpham WHERE id=$id" ;
+    $sanpham =pdo_query($sql);
+    return $sanpham;
+}
+function load__anhsp($id){
+    $sql = "SELECT*FROM bientheanh WHERE id=$id" ;
+    $sanpham =pdo_query($sql);
+    return $sanpham;
+}
+function load__bienthesp($id){
+    $sql = "SELECT*FROM bienthe WHERE id=$id" ;
+    $sanpham =pdo_query($sql);
+    return $sanpham;
 }

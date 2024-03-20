@@ -33,6 +33,10 @@ if (isset($_GET['act'])){
            include "./view/client/sanpham.php";
            break;
        }
+       case "chi_tiet":{
+           include "./view/client/chitietsp.php";
+           break;
+       }
        case "tin_tuc":{
            include "./view/client/tintuc.php";
            break;

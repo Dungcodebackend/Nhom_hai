@@ -13,7 +13,11 @@
                     if (isset($_POST['ok'])){
                          $bt = $_POST['bt'];
                          $id = $_POST['id'];
-                         $sl = 1;
+                         if (isset($_POST['soLuong'])){
+                             $sl = $_POST['soLuong'];
+                         }else {
+                             $sl = 1;
+                         }
                          $listsp = [$id,$bt,$sl];
                         $check = 'ok';
                         if (!empty($_SESSION['sp'])) {
