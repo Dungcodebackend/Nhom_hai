@@ -5,6 +5,7 @@ include "../../model/sanpham.php";
 include "../../model/taikhoan.php";
 include "../../model/danhmuc.php";
 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 if (isset($_SESSION['admin']) && $_SESSION['admin']=='admin'){
 include "view/header.php";

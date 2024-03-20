@@ -18,13 +18,25 @@
                 <p>QUANGANHLED</p>
             </div>
             <div class="choice">
-
                 <a href="index.php?act=gio_hang"><i class="fas fa-shopping-cart"></i></a>
-                <ul>
-                    <li><a href="index.php?act=dang_ky">Đăng ký </a></li>|
-                    <li><a href="index.php?act=dang_nhap">Đăng nhập</a></li>
-                </ul>
+                <?php
+
+                if (isset($_SESSION['nguoi'])){
+                ?>
+                        <p style="width: 20px">    </p>
+                        <a href='index.php?act=dang_nhap'><i class='fas fa-user'></i></a>
+                        <li><a href='index.php?act=dang_xuat'>Đăng Xuất</a></li>
+                <?php
+                }else{
+                ?>
+                    <ul>
+                         <li><a href="index.php?act=dang_ky">Đăng ký </a></li>|
+                         <li><a href="index.php?act=dang_nhap">Đăng nhập</a></li>
+                    </ul>
                 <a href="index.php?act=dang_nhap"><i class="fas fa-user"></i></a>
+                <?php
+                }
+                ?>
 
             </div>
         </section>
