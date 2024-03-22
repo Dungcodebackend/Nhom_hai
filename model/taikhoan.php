@@ -41,6 +41,12 @@ function loadall_khachhang()
     $listsanpham =pdo_query($sql);
     return $listsanpham;
 }
+function  quen_mk($email)
+{
+    $sql = "SELECT * FROM nguoi WHERE email = '$email' ";
+    $tkuse = pdo_query_one($sql);
+    return $tkuse;
+}
 
 
 

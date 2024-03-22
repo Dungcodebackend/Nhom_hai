@@ -34,7 +34,7 @@
 
         </form>
         <li style="list-style: none;">
-            <a href="#">Quên mật khẩu?</a>
+            <a href="index.php?act=quen_mk">Quên mật khẩu?</a>
         </li>
         <li style="list-style: none;">
             <a href="index.php?act=dang_ky" >Đăng ký thành viên</a>

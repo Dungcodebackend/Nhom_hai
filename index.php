@@ -82,6 +82,10 @@ if (isset($_GET['act'])){
            header("Location: index.php");
            break;
        }
+       case "quen_mk":{
+           include "./view/client/quenmk.php";
+           break;
+       }
        case "dang_nhap":{
            $i=0;
            $j=0;
