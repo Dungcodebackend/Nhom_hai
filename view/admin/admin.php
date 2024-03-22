@@ -4,6 +4,9 @@ include "../../model/pdo.php";
 include "../../model/sanpham.php";
 include "../../model/taikhoan.php";
 include "../../model/danhmuc.php";
+include "../../model/giohang.php";
+include "../../model/binhluan.php";
+include "../../model/tongquan.php";
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
@@ -17,10 +20,12 @@ include "view/header.php";
                 include "./view/sanpham.php";
                 break;
             }
+            case "danh_muc":{
+                include "./view/danhmuc.php";
+                break;
+            }
             case "add_sanpham":{
-
                 include "./view/addsanpham.php";
-
                 break;
             }
             case "updata_sanpham":{
@@ -38,12 +43,44 @@ include "view/header.php";
 
                 break;
             }
+            case "khach_hang":{
+                include "./view/khachhang.php";
+                break;
+            }
+            case "binh_luan":{
+                include "./view/binhluan.php";
+                break;
+            }case "upload_binhluan":{
+                    include "./view/uploadbl.php";
+                break;
+            }
+            case "delete_binhluan":{
+                if (isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    delete__bl($id);
+                }
+                include "./view/binhluan.php";
+                break;
+            }
+            case "hoa_don":{
+                include "./view/hoadon.php";
+                break;
+            }
+            case "trang_thai":{
+                include "./view/trangthai.php";
+                break;
+            }
+            case "chi_hoadon":{
+                include "./view/chitiethoadon.php";
+                break;
+            }
             default :{
-
+                include "./view/tongquan.php";
+                break;
             }
         }
     }else{
-
+        include "./view/tongquan.php";
     }
 
 include "view/footer.php";

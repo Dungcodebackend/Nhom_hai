@@ -24,7 +24,7 @@
                 if (isset($_SESSION['nguoi'])){
                 ?>
                         <p style="width: 20px">    </p>
-                        <a href='index.php?act=dang_nhap'><i class='fas fa-user'></i></a>
+                        <a href='index.php?act=cap_nhatuser&id=<?php echo $_SESSION['nguoi']['id']?>'><i class='fas fa-user'></i></a>
                         <li><a href='index.php?act=dang_xuat'>Đăng Xuất</a></li>
                 <?php
                 }else{

@@ -30,10 +30,35 @@ function update_soluong($id,$soluong)
                WHERE id= $id ";
     pdo_execute($sqlsp);
 }
-
-
-
-
+function loadall__hoadon()
+{
+    $sql = "SELECT*FROM hoadon  " ;
+    $listsanpham =pdo_query($sql);
+    return $listsanpham;
+}
+function load__trangthai($id){
+    $sql = "SELECT maVanDon,trangThai  FROM hoadon WHERE id=$id" ;
+    $listhoadon =pdo_query($sql);
+    return $listhoadon;
+}
+function upload__trangthai($id,$trangThai){
+    $sqlsp = "UPDATE hoadon SET 
+               trangThai ='$trangThai'
+               WHERE id= $id ";
+    pdo_execute($sqlsp);
+}
+function loadone__hoadon($id)
+{
+    $sql = "SELECT*FROM hoadon WHERE id=$id  " ;
+    $listsanpham =pdo_query($sql);
+    return $listsanpham;
+}
+function loadbill__ct($id)
+{
+    $sql = "SELECT*FROM bill_ct WHERE id_bill='$id'  " ;
+    $listsanpham =pdo_query($sql);
+    return $listsanpham;
+}
 
 
 

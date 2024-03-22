@@ -122,3 +122,8 @@ function load__bienthesp($id){
     $sanpham =pdo_query($sql);
     return $sanpham;
 }
+function load_top5dm($id){
+    $sql = "SELECT*FROM sanpham WHERE id_loaisanpham = $id order by id desc limit 5" ;
+    $listsanpham =pdo_query($sql);
+    return $listsanpham;
+}

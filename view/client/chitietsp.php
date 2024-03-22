@@ -1,5 +1,15 @@
 <?php
  if (isset($_GET['id']) && $_GET['id']){
+     if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['nguoi'])) {
+         $thoiGian = date("Y-m-d H:i:s");;
+         $noiDung = $_POST['noiDung'];
+         $iduser = $_POST['iduser'];
+         $idsp = $_POST['idsp'];
+         add__bl($thoiGian, $noiDung, $iduser, $idsp);
+     } else {
+         $tb = "<p style='color:red;padding-bottom: 10px'>Vui lòng đăng nhập để bình luận</p>";
+     }
+
      $id=$_GET['id'];
      $sp = load__sanpham($id);
      $anhsp = load__anhsp($id);
@@ -99,51 +109,65 @@
             <div class="boxtitle">BÌNH LUẬN</div>
             <div class="boxcontent  product_portfolio binhluan ">
                 <table>
-                    <tr>
-                        <td>Sản phẩm quá đẹp</td>
-                        <td> Nguyễn Tuấn Anh</td>
-                        <td> 08/03/2024</td>
-                    </tr>
-                    <tr>
-                        <td>Sản phẩm quá đẹp</td>
-                        <td> Nguyễn Thành A</td>
-                        <td> 20/10/2022</td>
-                    </tr>
+                <?php
+                  $listbl =load__bl($id);
+                  if (empty($listbl)){
+                      echo "<tr>
+                                 <td>Chưa có bình luận nào</td>                          
+                            </tr>";
+                  }
+                  foreach ($listbl as $bl){
+                      extract($bl);
+                      echo "<tr>
+                                 <td>$ten   ( $thoiGian )</td>
+                                  <td style='padding-left: 20px'>$noiDung</td>
+                            </tr>";
+                  }
+                ?>
                 </table>
             </div>
             <div class="searchbox">
-                <form action="" method="POST">
-                    <input type="hidden" name="idpro" value="">
-                    <input type="text" name="noidung"  >
+
+                <form action="index.php?act=chi_tiet&id=<?php echo $id ?>" method="POST">
+                    <input type="hidden" name="iduser" value="<?php if (isset($_SESSION['nguoi']))echo $_SESSION['nguoi']['id']; ?>">
+                    <input type="hidden" name="idsp" value="<?php echo $id ?>">
+                    <input type="text" name="noiDung" placeholder="Bình luận..." required>
                     <input type="submit" name="guibinhluan" value="Gửi bình luận">
                 </form>
+                <?php
+                 if ($_SERVER['REQUEST_METHOD']=="POST" && isset($tb)){
+                     echo $tb;
+                 }
+                ?>
             </div>
-
         </div>
 
         <div class="row mb">
             <div class="boxtitle">SẢN PHẨM CÙNG LOẠI</div>
             <div class="boxcontent">
-                <li><a href="">Sản phẩm 1</a></li>
-                <li><a href="">Sản phẩm 1</a></li>
-                <li><a href="">Sản phẩm 1</a></li>
-                <li><a href="">Sản phẩm 1</a></li>
-                <li><a href="">Sản phẩm 1</a></li>
+                <table>
+                    <?php
+
+                        $listspcl = load_top5dm($sp[0][6]);
+                        foreach ($listspcl as $splq){
+                            extract($splq);
+                    ?>
+                    <a href="index.php?act=chi_tiet&id=<?php echo $id ?>" style="text-decoration:none"><p style="display: flex;align-items: center; padding-bottom: 15px;">
+                        <img src="./upload/<?php echo $anh ?>" width="50px" height="50px"> </td>
+                        <span style="padding-left: 30px"><?php echo $tenSp ?></span>
+                        <span style="padding-left: 30px"><?php echo $gia ?> VND</span>
+                    </p></a>
+                    <?php
+                        }
+                    ?>
+                </table>
             </div>
         </div>
 
     </section>
-    <section class="dmproduce">
-        <div class="boxtitle">Danh mục sản phẩm</div>
-        <div class="boxcontent2">
-            <div class="listproduce">
-                <a href="#" class="list-group-item">Đèn LED gắn nổi</a>
-                <a href="#" class="list-group-item">Đèn LED ốp trần</a>
-                <a href="#" class="list-group-item">Đèn LED treo trần</a>
-                <a href="#" class="list-group-item">Đèn LED pha</a>
-            </div>
-        </div>
-    </section>
+    <?php
+        include './view/client/homeright.php';
+    ?>
 </main>
 <script src="./view/js/chitiet.js"></script>
 <?php

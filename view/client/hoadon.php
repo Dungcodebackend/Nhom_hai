@@ -28,6 +28,9 @@
             <h3 style="font-weight: 600;font-size: 24px;text-align: center">Đặt Hàng Thành Công!</h3>
             <p style="font-size: 16px;text-align: center;color: #696464;padding-top: 10px">Cảm ơn quý khách hàng đã đặt hàng tại QUANGANHLED </p>
             <p style="font-size: 16px;text-align: center;color: #696464;padding-top: 10px">Mã đơn hàng : <span style="color:red;font-weight: 600"><?php echo $maVanDon ?></span> </p>
+            <p style="font-size: 16px;text-align: center;color: #696464;padding-top: 10px">Bộ phận phụ trách sẽ chủ động liên hệ cho anh (chị) trong thời gian sớm nhất có <br>
+             thể. Trong trường hợp cần gấp vui lòng gọi Hotline:<span style="color:red;font-weight: 600">1900 00 00 00</span><br>
+            Chân thành cảm ơn</p>
             <div style="text-align: center;padding-top: 80px;padding-left: 42.5%"><a href="index.php" style="text-decoration: none"><p style="font-weight: 600;width: 150px;height: 40px;color:#e5fbfb;background:#59e34f;padding-top: 12px;border-radius: 4px">VỀ TRANG CHỦ</p></a></div>
             </div>
             <div style="height: 10px"></div>

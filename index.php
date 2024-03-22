@@ -3,13 +3,13 @@ include "./model/pdo.php";
 include "./model/sanpham.php";
 include "./model/taikhoan.php";
 include "./model/giohang.php";
+include "./model/binhluan.php";
 
 session_start();
 ob_start();
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 include "./view/client/header.php";
-
 
 
 if (isset($_GET['act'])){
@@ -116,6 +116,10 @@ if (isset($_GET['act'])){
                     }
             }
            include "./view/client/dangnhap.php";
+           break;
+       }
+       case "cap_nhatuser":{
+           include "./view/client/capnhatuser.php";
            break;
        }
        default :{

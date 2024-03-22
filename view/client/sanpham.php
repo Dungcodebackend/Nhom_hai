@@ -7,7 +7,6 @@
     <section class="mucsp" >
         <section class="producebuy">
             <?php
-
                 foreach ($dssp as $sanpham){
                     ?>
                     <section class="produce1">
